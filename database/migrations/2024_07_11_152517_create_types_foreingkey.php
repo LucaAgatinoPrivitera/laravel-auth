@@ -23,13 +23,11 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::table('types', function (Blueprint $table) {
-            
-            $table->dropForeign('projects_types  _id_foreign');
-            $table->dropColumn('project_id');
-
+            $table->dropForeign(['project_id']); // Rimuove la chiave esterna
+            $table->dropColumn('project_id'); // Rimuove la colonna
         });
     }
 };
