@@ -144,3 +144,36 @@ Quindi localhost:8000/admin/projects dovrebbe mostrarvi l'index, solo per chi è
 
 BONUS
 E se volessi stampare la lista dei progetti anche dalla vista Welcome?
+
+
+Parte 3
+
+:uno: CRUD
+Dovrete creare un nuovo Model (con relative Migration, Seeder e Resource Controller) per la risorsa Type.
+Ogni Type prevede: nome, descrizione e icona.
+Type possibili sono: Front-end, Back-end, Full stack e Design.
+Procedete poi realizzando le CRUD per questo tipo di dato, in modo da poter gestire da dashboard i Tipi previsti.
+Solo quando tutto funziona concentratevi sulle relazioni.
+
+:due: RELAZIONI SU DB
+Create una nuova migration che vi permetta di aggiungere la foreign key "type_id" sul Project.
+In questo modo ogni Project sarà collegato a un Type. Ogni Type sarà collegato a più Project.
+Quale di questi due dati è indipendente? Quale invece dipende dalla presenza dell'altro? :avviso:
+Riflettete la modifica nel seeder, se ne avete uno.
+A cose fatte dovrà essere possibile avviare il classico php artisan migrate:fresh --seed senza che si rompa nulla.
+A questo punto nella show dei Project potrete stampare il ->type_id del progetto corrente. Restituirà solo l'ID del Type.
+
+:tre: RELAZIONI SUI MODEL
+Aggiungete ai model le relazioni: hasMany o belongTo.
+Quale dei due Model è indipendente? Quale invece dipende dalla presenza dell'altro? :avviso:
+La relazione si traduce in: Indipendente possiede Dipendente e Dipendente appartiene a Indipendente.
+Nei model: Indipendente hasMany Dipendente e Dipendente belongsTo Indipendente.
+Una volta capita la direzione delle relazioni rifatevi al codice pushato in live coding e/o alle slide per trovare la giusta sintassi.
+A questo punto nella show dei Project potrete stampare il ->type->name del progetto corrente. Restituirà la stringa col nome del Type.
+
+:regalo: CRUD CON SELECT
+Partite modificando create/edit dei Project, a questo punto dovranno avere un campo aggiuntivo: il campo TypeId, dove scrivere un valido ID.
+Quando tutto funziona provate a ragionare su come far arrivare alla vista l'intera lista dei Type, così da farne una select.
+
+Da chiedere:
+	La parte Schema come va riempita?
