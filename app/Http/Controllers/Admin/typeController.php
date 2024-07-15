@@ -19,7 +19,7 @@ class TypeController extends Controller
             "types" => $types
         ];
 
-        return view("admin.type.index", $data );
+        return view("admin.type.index", $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.type.create');
     }
 
     /**
@@ -35,7 +35,30 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //PRENDO TUTTI I DATI
+        // $data = $request->all();
+
+        // Qui abbiamo la validazione
+        $data = $request->validate([
+            // "id" => "required",
+            "name_type" => "required|min:5|max:255",
+            "description" => "required|min:5|max:255",
+            "icon" => "required",
+        ]);
+
+
+        //CREO L'OGGETTO
+        $newType = new Type();
+
+        //POPOLO L'OGGETTO CREANDO L'ISTANZA
+        $newType->fill($data);
+
+        //SALVO SUL DB
+        $newType->save();
+
+        //RITORNO LA ROTTA
+        // return redirect()->route('project.index');
+        return redirect()->route('admin.type.show', $newType);
     }
 
     /**
@@ -43,7 +66,11 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        $data = [
+            "project" => $type
+        ];
+
+        return view("admin.type.show", $data);
     }
 
     /**
@@ -51,7 +78,11 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        $data = [
+            "project" => $type
+        ];
+
+        return view("admin.type.edit", $type);
     }
 
     /**
@@ -59,7 +90,23 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+
+
+        // $project->name_project = $data["name_project"];
+        // $project->description = $data["description"];
+        // $project->date = $data["date"];
+        // $project->group = $data["group"];
+        // $project->save();
+
+
+        // $project->fill($data);
+        // $project->save();
+
+        $type->update($data);
+
+
+        return redirect()->route('admin.type.show', $type->id);
     }
 
     /**
@@ -67,6 +114,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return redirect()->route('admin.type.index');
     }
 }
