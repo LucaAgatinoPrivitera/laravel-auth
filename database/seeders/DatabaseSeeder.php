@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             TypeSeeder::class,
+            // Project va messo dopo perché dipende dai tipi
             ProjectTableSeeder::class,
-            UserSeeder::class
         ]);
     }
 }

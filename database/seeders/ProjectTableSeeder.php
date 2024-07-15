@@ -17,24 +17,27 @@ class ProjectTableSeeder extends Seeder
         $newProject->name_project = 'Laravel 1';
         $newProject->description = 'Il progetto Laravel 1 é stato fatto da luca, nichola e ciccio.';
         $newProject->group = true;
-        $newProject->date = now();
-        $newProject->type_id = 1;
+        // Per ora date lo tolgo perché dava errore
+        // $newProject->date = now();
+        $newProject->type_id = Type::inRandomOrder()->first()->id;
         $newProject->save();
 
+        // $type = Type::inRandomOrder()->first();
         $newProject = new Project();
         $newProject->name_project = 'Laravel 2';
         $newProject->description = 'Il progetto Laravel 1 é stato fatto da luca.';
         $newProject->group = false;
-        $newProject->date = now();
-        $newProject->type_id = 2;
+        // $newProject->date = now();
+        $newProject->type_id = Type::inRandomOrder()->first()->id;
         $newProject->save();
 
+        // $type = Type::inRandomOrder()->first();
         $newProject = new Project();
         $newProject->name_project = 'Laravel 2';
         $newProject->description = 'Il progetto Laravel 1 é stato fatto da luca, nichola e ciccio.';
         $newProject->group = true;
-        $newProject->date = now();
-        $newProject->type_id = 3;
+        // $newProject->date = now();
+        $newProject->type_id = Type::inRandomOrder()->first()->id;
         $newProject->save();
     }
 }

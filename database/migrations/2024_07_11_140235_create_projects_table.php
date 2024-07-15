@@ -17,10 +17,9 @@ return new class extends Migration
             $table->char('name_project', 100);
             $table->text('description');
             $table->boolean('group')->nullable();
-            $table->date('date');
             
-            $table->unsignedBigInteger('type_id'); // Chiave esterna verso types
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            // $table->unsignedBigInteger('type_id'); // Chiave esterna verso types
+            // $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
 
         });
     }
