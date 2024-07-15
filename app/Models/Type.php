@@ -14,11 +14,11 @@ class Type extends Model
         "icon"
     ];
 
-    /* Dopo lo rimetto almeno vedo che fa
     
-    //Dalle Category recupera i Projects collegati
+    
+    // Dalle Category recupera i Projects collegati
     public function projects()
     {
         return $this->hasMany(Project::class);
-    }*/
+    }
 }

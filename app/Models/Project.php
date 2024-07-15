@@ -14,10 +14,11 @@ class Project extends Model
         "description",
         "group",
         "date",
+        "type_id"
     ];
     //Dipendenze presumo, da controllare
-    // public function types()
-    // {
-    //     return $this->belongsTo(Type::class);
-    // }
+    public function types()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
