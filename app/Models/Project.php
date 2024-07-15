@@ -15,4 +15,9 @@ class Project extends Model
         "group",
         "date",
     ];
+    //Dipendenze presumo, da controllare
+    // public function types()
+    // {
+    //     return $this->belongsTo(Type::class);
+    // }
 }
