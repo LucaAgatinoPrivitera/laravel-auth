@@ -42,7 +42,8 @@ class projectController extends Controller
             "name_project" => "required|min:3|max:200",
             "description" => "required|min:5|max:255",
             "group" => "required|boolean",
-            "date" => "required|integer|min:1980|max:2099",
+            "date" => "required|date",
+            'type_id' => 'required|exists:types,id'
         ]);
 
 

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\Admin\projectController;
-use App\Http\Controllers\TypeController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Models\Project;
 
 /*

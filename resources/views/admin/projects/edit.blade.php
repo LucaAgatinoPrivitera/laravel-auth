@@ -50,6 +50,14 @@
 						<input type="date" class="form-control" name="date" required value="{{ $project->date }}">
 					</div>
 
+					<div>
+						<label for="type_id">type_id:</label>
+						<input type="int" id="type_id" name="type_id" value="{{ old('type_id') }}">
+						@error('type_id')
+							<div>{{ $message }}</div>
+						@enderror
+					</div>
+
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 

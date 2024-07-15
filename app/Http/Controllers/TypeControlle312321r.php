@@ -12,10 +12,10 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $categories = Type::all();
+        $types = Type::all();
 
         $data = [
-            "categorie" => $categories
+            "categorie" => $types
         ];
 
         return view("admin.type.index", $data );

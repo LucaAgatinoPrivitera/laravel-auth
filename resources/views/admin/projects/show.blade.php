@@ -10,5 +10,6 @@
 		@endif
 
 		</div>
+		<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
 		<a href="/">Torna alla home</a>
 	@endsection
