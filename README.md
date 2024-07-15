@@ -177,3 +177,4 @@ Quando tutto funziona provate a ragionare su come far arrivare alla vista l'inte
 
 Da chiedere:
 	La parte Schema come va riempita?
+	Nei tipi, non mi vengono aggiunti i nuovi tipi che inserisco attraverso il create. 
