@@ -10,9 +10,9 @@
 			@else
 				<p>Progetto non svolto in gruppo</p>
 			@endif
-			<p>id: {{ $project->type_id }}</p>
-			{{-- <p>nome: {{ $project->types->name_type }}</p> --}}
-			<p>{{ print_r($project) }}</p>
+			{{-- <p>id: {{ $project->type_id }}</p> --}}
+			<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
+			{{-- <p>{{ print_r($project) }}</p> --}}
 		@endforeach
 	</div>
 @endsection

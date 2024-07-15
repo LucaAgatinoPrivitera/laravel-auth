@@ -16,8 +16,9 @@ class Project extends Model
         "date",
         "type_id"
     ];
-    //Dipendenze presumo, da controllare
-    public function types()
+
+    // Relazione corretta: un project appartiene a un singolo type
+    public function type()
     {
         return $this->belongsTo(Type::class);
     }
