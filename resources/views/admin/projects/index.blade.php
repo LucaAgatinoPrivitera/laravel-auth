@@ -5,7 +5,8 @@
 			<h1>Progetto: {{ $project->name_project }}</h1>
 			<p>Descrizione: {{ $project->description }}</p>
 			<p>Data pubblicazione: {{ $project->date }}</p>
-			<p>Lingua : {{ $project->languages }}</p>
+			<p>Lingua : {{ $project->languages->name_lang }}</p>
+			{{-- Non funziona --}}
 			@if ($project->group == true)
 				<p>Progetto svolto in gruppo</p>
 			@else
@@ -18,5 +19,6 @@
 				<button type="submit" class="btn btn-primary mt-1">Destroy</button>
 			</form>
 		@endforeach
+		<p>{{ dd($project->languages) }}</p>
 	</div>
 @endsection
