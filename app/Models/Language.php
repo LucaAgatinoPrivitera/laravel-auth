@@ -15,7 +15,7 @@ class Language extends Model
         "icon",
         // "project_id",
     ];
-    public function languages()
+    public function projects()
     {
         return $this->belongsToMany(Project::class);
     }

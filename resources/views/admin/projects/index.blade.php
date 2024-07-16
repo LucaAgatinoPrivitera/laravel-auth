@@ -5,6 +5,7 @@
 			<h1>Progetto: {{ $project->name_project }}</h1>
 			<p>Descrizione: {{ $project->description }}</p>
 			<p>Data pubblicazione: {{ $project->date }}</p>
+			<p>Lingua : {{ $project->languages }}</p>
 			@if ($project->group == true)
 				<p>Progetto svolto in gruppo</p>
 			@else
