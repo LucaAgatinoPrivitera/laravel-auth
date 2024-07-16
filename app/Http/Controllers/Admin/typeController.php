@@ -67,7 +67,7 @@ class TypeController extends Controller
     public function show(Type $type)
     {
         $data = [
-            "project" => $type
+            "type" => $type
         ];
 
         return view("admin.type.show", $data);
@@ -79,10 +79,10 @@ class TypeController extends Controller
     public function edit(Type $type)
     {
         $data = [
-            "project" => $type
+            "type" => $type
         ];
 
-        return view("admin.type.edit", $type);
+        return view("admin.type.edit", $data);
     }
 
     /**

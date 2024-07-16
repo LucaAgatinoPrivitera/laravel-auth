@@ -45,17 +45,31 @@
 								</a>
 							</li>
 
-							@if (Route::currentRouteName() !== 'admin.projects.index')
+							
 								<li class="nav-item">
-									<a class="nav-link" href="{{ route('admin.projects.index') }}">
+									<a class="nav-link {{Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : ''}}" href="{{ route('admin.projects.index') }}" href="{{ route('admin.projects.index') }}">
 										Project list
 									</a>
 								</li>
-							@endif
+							
+
+							
+							<li class="nav-item">
+								<a class="nav-link {{Route::currentRouteName() == 'admin.type.index' ? 'bg-secondary' : ''}}" href="{{ route('admin.type.index') }}">
+									Type list
+								</a>
+							</li>
+						
 
 							<li class="nav-item">
-								<a class="nav-link" href="{{ route('admin.projects.create') }}">
+								<a class="nav-link {{Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : ''}}" href="{{ route('admin.projects.create') }}" href="{{ route('admin.projects.create') }}">
 									Create project
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link {{Route::currentRouteName() == 'admin.type.create' ? 'bg-secondary' : ''}}" href="{{ route('admin.type.create') }}" href="{{ route('admin.type.create') }}">
+									Create type
 								</a>
 							</li>
 

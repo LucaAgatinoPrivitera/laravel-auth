@@ -35,20 +35,6 @@
 						<h3 class="form-label">Descrizione</h3>
 						<textarea type="text" class="form-control" name="description" required>{{ $type->description }}</textarea>
 					</div>
-					<div class="mb-3">
-						<h3 class="form-label">Gruppo</h3>
-
-                        {{-- Va messo il value altrimenti, essendo che richiede un booleano, non accetta il valore "si" perché stringa --}}
-						<input type="radio" name="group" value="1">
-						<label for="vehicle1"> Si</label><br>
-						<input type="radio" name="group" value="0">
-						<label for="vehicle2"> No</label><br>
-
-					</div>
-					<div class="mb-3">
-						<h3 class="form-label">Icona</h3>
-						<input type="text" class="form-control" name="date" required value="{{ $type->icon }}">
-					</div>
 
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>

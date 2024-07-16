@@ -9,8 +9,17 @@
 					{{-- <p>{{ print_r($type) }}</p> --}}
 				</div>
 				{{-- <a class="btn btn-primary" href="{{ route('admin.types.show', $type->id) }}">More details</a> --}}
+
+				<!-- Form per la cancellazione -->
+				<a class="btn btn-dark" href="{{ route('admin.type.edit', $type->id) }}">Modifica</a>
+				<form action="{{ route('admin.type.destroy', $type->id) }}" method="POST"
+					onsubmit="return confirm('Sei sicuro di voler cancellare questo tipo?');">
+					@csrf
+					@method('DELETE')
+					<button type="submit" class="btn btn-danger">Cancella</button>
+				</form>
 			</div>
 		@endforeach
-		
+
 	</div>
 @endsection

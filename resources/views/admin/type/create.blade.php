@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-	<h1>Aggiungi un nuovo tipo di progetto</h1>
+	<h1>Aggiungi un nuovo type</h1>
 	<form action="{{ route('admin.type.store') }}" method="POST">
 		@csrf
 		<div>
@@ -23,7 +23,7 @@
 		</div>
 
 		<!-- Aggiungi qui altri campi del form se necessario -->
-		<button type="submit">Aggiungi progetto</button>
+		<button type="submit">Aggiungi tipo</button>
 	</form>
-	<a href="{{ route('admin.projects.index') }}">Torna alla lista dei progetti</a>
+	<a href="{{ route('admin.type.index') }}">Torna alla lista dei tipi</a>
 @endsection
