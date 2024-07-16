@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             // Project va messo dopo perché dipende dai tipi
             ProjectTableSeeder::class,
+            LanguagesTableSeeder::class,
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
+use App\Http\Controllers\Admin\languageController;
 use App\Http\Controllers\Admin\projectController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Models\Project;
@@ -42,6 +43,8 @@ Route::middleware(['auth'])
         Route::resource('/projects', projectController::class);
 
         Route::resource("/type", TypeController::class);
+
+        Route::resource("/language", languageController::class);
     });
 
 require __DIR__ . '/auth.php';
