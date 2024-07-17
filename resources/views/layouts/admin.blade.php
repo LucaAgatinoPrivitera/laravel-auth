@@ -10,6 +10,9 @@
 
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
+	{{-- Con questo importo il css da public/css --}}
+	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 	<!-- Fontawesome 6 cdn -->
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
 		integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=='
@@ -45,30 +48,34 @@
 								</a>
 							</li>
 
-							
-								<li class="nav-item">
-									<a class="nav-link {{Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : ''}}" href="{{ route('admin.projects.index') }}" href="{{ route('admin.projects.index') }}">
-										Project list
-									</a>
-								</li>
-							
 
-							
 							<li class="nav-item">
-								<a class="nav-link {{Route::currentRouteName() == 'admin.type.index' ? 'bg-secondary' : ''}}" href="{{ route('admin.type.index') }}">
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.projects.index') }}" href="{{ route('admin.projects.index') }}">
+									Project list
+								</a>
+							</li>
+
+
+
+							<li class="nav-item">
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.type.index' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.type.index') }}">
 									Type list
 								</a>
 							</li>
-						
+
 
 							<li class="nav-item">
-								<a class="nav-link {{Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : ''}}" href="{{ route('admin.projects.create') }}" href="{{ route('admin.projects.create') }}">
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.projects.create') }}" href="{{ route('admin.projects.create') }}">
 									Create project
 								</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link {{Route::currentRouteName() == 'admin.type.create' ? 'bg-secondary' : ''}}" href="{{ route('admin.type.create') }}" href="{{ route('admin.type.create') }}">
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.type.create' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.type.create') }}" href="{{ route('admin.type.create') }}">
 									Create type
 								</a>
 							</li>

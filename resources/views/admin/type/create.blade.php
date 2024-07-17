@@ -12,8 +12,6 @@
 			@enderror
 		</div>
 
-
-
 		<div>
 			<label for="description">Descrizione</label>
 			<input type="text" id="description" name="description" value="{{ old('description') }}">
@@ -21,6 +19,15 @@
 				<div>{{ $message }}</div>
 			@enderror
 		</div>
+
+		{{-- Icona mancava e quindi non potevo creare un nuovo type --}}
+		<div>
+            <label for="icon">Icona</label>
+            <input type="text" id="icon" name="icon" value="{{ old('icon') }}">
+            @error('icon')
+                <div>{{ $message }}</div>
+            @enderror
+        </div>
 
 		<!-- Aggiungi qui altri campi del form se necessario -->
 		<button type="submit">Aggiungi tipo</button>
