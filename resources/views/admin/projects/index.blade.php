@@ -7,18 +7,24 @@
 			<p>Data pubblicazione: {{ $project->date }}</p>
 			{{-- Senza count non si può fare, almeno con un semplice $project->languages >1 non funziona --}}
 			@if ($project->languages->count() > 1)
-			<p>Linguaggi utilizzati:
-				@foreach ($project->languages as $language)
-					{{ $language->name_lang }}@if (!$loop->last), @endif
-				@endforeach
-			</p>
-		@else
-			<p>Linguaggio utilizzato:
-				@foreach ($project->languages as $language)
-					{{ $language->name_lang }}
-				@endforeach
-			</p>
-		@endif
+				<p>Linguaggi utilizzati:
+					@foreach ($project->languages as $language)
+					{{-- Dopo numerosi giri ho capito che se volevo togliere lo spazio al punto finale dovevo fare un concatenamento --}}
+						@if (!$loop->last)
+							{{ $language->name_lang . ',' }}
+						@else
+							
+							{{ $language->name_lang . '.' }}
+						@endif
+					@endforeach
+				</p>
+			@else
+				<p>Linguaggio utilizzato:
+					@foreach ($project->languages as $language)
+						{{ $language->name_lang }}.
+					@endforeach
+				</p>
+			@endif
 
 			{{-- Non funziona --}}
 			@if ($project->group == true)
