@@ -6,6 +6,11 @@
 
 		<div>
 			<h1>Titolo: {{ $project['name_project'] }}</h1>
+			@if ($project->cover_image)
+				<img src="{{ asset('storage/' . $project->cover_image) }}" alt="Cover Image">
+			@else
+				<p>Immagine di copertura non disponibile</p>
+			@endif
 			<h2>Descrizione: {{ $project['description'] }}</h2>
 
 			@if ($project->group == true)
@@ -16,6 +21,7 @@
 		<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
 		<button class="border-0 rounded bg-primary"><a class="text-light text-decoration-none"
 				href="{{ route('admin.projects.edit', $project->id) }}">Modifica</a></button>
-		<button class="border-0 rounded bg-danger"><a class="text-light text-decoration-none" href="/">Torna alla home</a></button>
+		<button class="border-0 rounded bg-danger"><a class="text-light text-decoration-none" href="/">Torna alla
+				home</a></button>
 	</div>
 @endsection

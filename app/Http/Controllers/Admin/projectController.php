@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class projectController extends Controller
 {
@@ -44,9 +45,13 @@ class projectController extends Controller
             "description" => "required|min:5|max:255",
             "group" => "required|boolean",
             "date" => "required|date",
-            'type_id' => 'required|exists:types,id'
+            'type_id' => 'required|exists:types,id',
+            'cover_image' => 'nullable|image|max:2048',
         ]);
 
+        if ($request->hasFile('cover_image')) {
+            $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
+        }
 
         //CREO L'OGGETTO
         $newProject = new Project();
@@ -103,6 +108,17 @@ class projectController extends Controller
 
         // $project->fill($data);
         // $project->save();
+
+
+        if ($request->hasFile('cover_image')) {
+            // Cancella l'immagine precedente, se esiste
+            if ($project->cover_image) {
+                Storage::disk('public')->delete($project->cover_image);
+            }
+    
+            // Carica la nuova immagine e aggiorna il campo cover_image nei dati
+            $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
+        }
 
         $project->update($data);
 
