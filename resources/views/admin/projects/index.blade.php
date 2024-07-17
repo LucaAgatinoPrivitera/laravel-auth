@@ -3,7 +3,7 @@
 	<div class="d-flex flex-wrap row">
 		@foreach ($projects as $project)
 			<div class="col-4 my-4">
-				<div class="p-4 m-2 border">
+				<div class="p-4 my-2 border mx-1">
 					<h1>Progetto: {{ $project->name_project }}</h1>
 					<p>Descrizione: {{ $project->description }}</p>
 					<p>Data pubblicazione: {{ $project->date }}</p>
@@ -42,6 +42,8 @@
 				</div>
 			</div>
 		@endforeach
+		<button class="border-0 bg-transparent d-flex mx-1"><a class="btn bg-primary text-light text-decoration-none"
+				href="{{ route('admin.projects.create') }}">Crea un nuovo Project</a></button>
 
 
 		{{-- <p>{{ dd($project->languages) }}</p> --}}

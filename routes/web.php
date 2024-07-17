@@ -32,7 +32,7 @@ Route::get('/show/{project}', function (Project $project) {
     ];
 
     return view('show', $data);
-});
+})->name('show');
 
 Route::get('/about', function () {
     return view('about');

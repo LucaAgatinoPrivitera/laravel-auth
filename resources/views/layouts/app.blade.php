@@ -20,6 +20,12 @@
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+	{{-- Font home --}}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+
 	<!-- Usando Vite -->
 	@vite(['resources/js/app.js'])
 </head>
@@ -41,7 +47,7 @@
 					<!-- Left Side Of Navbar -->
 					<ul class="navbar-nav me-auto">
 						<li class="nav-item">
-							<a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+							<a class="navbar-brand d-flex align-items-center home_font" href="{{ url('/') }}">
 								{{-- config('app.name', 'Laravel') --}}
 								Luca Privitera
 							</a>
@@ -90,8 +96,8 @@
 			@yield('content')
 		</main>
 	</div>
-	
-		@extends('layouts.footer')
+
+	@extends('layouts.footer')
 </body>
 
 </html>

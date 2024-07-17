@@ -20,7 +20,7 @@
 							{{-- <p>id: {{ $project->type_id }}</p> --}}
 							<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
 							{{-- <p>{{ print_r($project) }}</p> --}}
-							<a href=""></a>
+							<button class="bg-transparent border-0"><a href="{{ route('show', $project->id) }}" class="btn btn-primary">more details</a></button>
 						</div>
 
 					</div>

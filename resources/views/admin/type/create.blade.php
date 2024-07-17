@@ -5,7 +5,7 @@
 	<form action="{{ route('admin.type.store') }}" method="POST">
 		@csrf
 		<div>
-			<label for="name_type">Titolo:</label>
+			<label class="my-2 py-1" for="name_type">Titolo:</label>
 			<input type="text" id="name_type" name="name_type" value="{{ old('name_type') }}">
 			@error('name_type')
 				<div>{{ $message }}</div>
@@ -13,7 +13,7 @@
 		</div>
 
 		<div>
-			<label for="description">Descrizione</label>
+			<label class="my-2 py-1" for="description">Descrizione:</label>
 			<input type="text" id="description" name="description" value="{{ old('description') }}">
 			@error('description')
 				<div>{{ $message }}</div>
@@ -22,7 +22,7 @@
 
 		{{-- Icona mancava e quindi non potevo creare un nuovo type --}}
 		<div>
-            <label for="icon">Icona</label>
+            <label class="my-2 py-1" for="icon">Icona:</label>
             <input type="text" id="icon" name="icon" value="{{ old('icon') }}">
             @error('icon')
                 <div>{{ $message }}</div>
@@ -30,7 +30,7 @@
         </div>
 
 		<!-- Aggiungi qui altri campi del form se necessario -->
-		<button type="submit">Aggiungi tipo</button>
+		<button class="my-2 py-1" type="submit">Aggiungi tipo</button>
 	</form>
 	<a href="{{ route('admin.type.index') }}">Torna alla lista dei tipi</a>
 @endsection

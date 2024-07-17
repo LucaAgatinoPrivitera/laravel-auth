@@ -1,6 +1,6 @@
 <footer>
     <div class="container m-auto border-top mt-5">
-        <p>Email: priviteraluca01@gmail.com</p>
+        <p><a class="text-decoration-none text-dark" href="mailto:priviteraluca01@gmail.com"><i class="fa-solid fa-envelope"></i>priviteraluca01@gmail.com</a></p>
         <p>Phone: +39 373-724-4461</p>
         <div class="containerIcons">
             <a href="https://www.facebook.com/Luca.privitera01/"><i class="fa-brands fa-facebook"></i></a>
