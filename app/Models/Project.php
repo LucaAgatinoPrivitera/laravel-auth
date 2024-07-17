@@ -14,7 +14,8 @@ class Project extends Model
         "description",
         "group",
         "date",
-        "type_id"
+        "type_id",
+        'cover_image',
     ];
 
     // Relazione corretta: un project appartiene a un singolo type

@@ -48,6 +48,14 @@
 				<div>{{ $message }}</div>
 			@enderror
 		</div>
+
+		<div>
+			<label for="cover_image">Immagine di copertura:</label>
+			<input type="file" id="cover_image" name="cover_image">
+			@error('cover_image')
+				<div>{{ $message }}</div>
+			@enderror
+		</div>
 		<!-- Aggiungi qui altri campi del form se necessario -->
 		<button type="submit">Aggiungi progetto</button>
 	</form>
