@@ -5,7 +5,21 @@
 			<h1>Progetto: {{ $project->name_project }}</h1>
 			<p>Descrizione: {{ $project->description }}</p>
 			<p>Data pubblicazione: {{ $project->date }}</p>
-			<p>Lingua : {{ $project->languages->name_lang }}</p>
+			{{-- Senza count non si può fare, almeno con un semplice $project->languages >1 non funziona --}}
+			@if ($project->languages->count() > 1)
+			<p>Linguaggi utilizzati:
+				@foreach ($project->languages as $language)
+					{{ $language->name_lang }}@if (!$loop->last), @endif
+				@endforeach
+			</p>
+		@else
+			<p>Linguaggio utilizzato:
+				@foreach ($project->languages as $language)
+					{{ $language->name_lang }}
+				@endforeach
+			</p>
+		@endif
+
 			{{-- Non funziona --}}
 			@if ($project->group == true)
 				<p>Progetto svolto in gruppo</p>
