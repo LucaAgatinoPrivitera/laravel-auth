@@ -1,18 +1,32 @@
 @extends('layouts.app')
 @section('content')
-	<div>
-		@foreach ($projects as $project)
-			<h1>Progetto: {{ $project->name_project }}</h1>
-			<p>Descrizione: {{ $project->description }}</p>
-			<p>Data pubblicazione: {{ $project->date }}</p>
-			@if ($project->group == true)
-				<p>Progetto svolto in gruppo</p>
-			@else
-				<p>Progetto non svolto in gruppo</p>
-			@endif
-			{{-- <p>id: {{ $project->type_id }}</p> --}}
-			<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
-			{{-- <p>{{ print_r($project) }}</p> --}}
-		@endforeach
+	<div class="container">
+		<div class="justify-content-center">
+			<h1 class="mb-4">Luca Privitera's Portfolio</h1>
+			<h2>My projects:</h2>
+			<div class="d-flex flex-wrap row">
+				@foreach ($projects as $project)
+					<div class="col-3 rounded">
+						<div class="d-flex flex-column justify-content-center border singleCard px-2 py-1">
+							<img class="d-block m-auto w-100" src="{{ asset('storage/' . $project->cover_image) }}" alt="Cover Image">
+							<h4>Progetto: {{ $project->name_project }}</h4>
+							<p>Descrizione: {{ $project->description }}</p>
+							<p>Data pubblicazione: {{ $project->date }}</p>
+							@if ($project->group == true)
+								<p>Progetto svolto in gruppo</p>
+							@else
+								<p>Progetto non svolto in gruppo</p>
+							@endif
+							{{-- <p>id: {{ $project->type_id }}</p> --}}
+							<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
+							{{-- <p>{{ print_r($project) }}</p> --}}
+							<a href=""></a>
+						</div>
+
+					</div>
+				@endforeach
+			</div>
+		</div>
+
 	</div>
 @endsection

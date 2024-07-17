@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="w-75 m-auto">
+	<div class="container">
 
 
 		<div>
@@ -19,12 +19,7 @@
 
 		</div>
 		<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
-		<button class="border-0 rounded bg-primary"><a class="text-light text-decoration-none"
-				href="{{ route('admin.projects.edit', $project->id) }}">Modifica</a></button>
-		<form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
-			@method('DELETE')
-			@csrf
-			<button type="submit" class="btn btn-danger mt-1">Destroy</button>
-		</form>
+		<button class="border-0 rounded bg-primary"><a class="text-light text-decoration-none" href="/">Torna alla
+				home</a></button>
 	</div>
 @endsection
