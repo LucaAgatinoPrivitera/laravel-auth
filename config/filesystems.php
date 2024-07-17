@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
-
+    'default' => env('FILESYSTEM_DISK', 'public'),
+    // Prima era local, ora public
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
