@@ -21,7 +21,7 @@
 			<div class="col-12">
 
 				{{-- Questo form non carica una generica rotta "store" ma ha bisogno dell'id del gioco da aggiornare --}}
-				<form method="POST" action="{{ route('admin.projects.update', $project->id) }}">
+				<form enctype="multipart/form-data" method="POST" action="{{ route('admin.projects.update', $project->id) }}">
 					@method('PUT') {{-- v. slide da 32 a 35 --}}
 					@csrf
 					<div class="mb-3">
