@@ -26,6 +26,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 		rel="stylesheet">
 
+	{{-- FontAwesome --}}
+	<script src="https://kit.fontawesome.com/ee64cb3605.js" crossorigin="anonymous"></script>
+
 	<!-- Usando Vite -->
 	@vite(['resources/js/app.js'])
 </head>
