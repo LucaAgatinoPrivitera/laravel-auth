@@ -8,7 +8,13 @@
 				@foreach ($projects as $project)
 					<div class="col-3 rounded">
 						<div class="d-flex flex-column justify-content-center border singleCard px-2 py-1">
-							<img class="d-block m-auto w-100" src="{{ asset('storage/' . $project->cover_image) }}" alt="Cover Image">
+
+							@if (Str::startsWith($project->cover_image, 'http'))
+								<img style="width: 2rem" src="{{ $project->cover_image }}">
+							@else
+								<img style="width: 2rem" src="{{ asset('storage/' . $project->cover_image) }}">
+							@endif
+
 							<h4>Progetto: {{ $project->name_project }}</h4>
 							<p>Descrizione: {{ $project->description }}</p>
 							<p>Data pubblicazione: {{ $project->date }}</p>
@@ -20,7 +26,8 @@
 							{{-- <p>id: {{ $project->type_id }}</p> --}}
 							<p>Tipologia del progetto: {{ $project->type->name_type }}</p>
 							{{-- <p>{{ print_r($project) }}</p> --}}
-							<button class="bg-transparent border-0"><a href="{{ route('show', $project->id) }}" class="btn btn-primary">more details</a></button>
+							<button class="bg-transparent border-0"><a href="{{ route('show', $project->id) }}" class="btn btn-primary">more
+									details</a></button>
 						</div>
 
 					</div>

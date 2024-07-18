@@ -11,8 +11,6 @@
 	{{-- Con questo importo il css da public/css --}}
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
 
