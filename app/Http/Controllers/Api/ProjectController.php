@@ -26,13 +26,16 @@ class ProjectController extends Controller
 
         if ($project) {
             return response()->json([
-                'status' => 'success',
+                'success' => true,
                 // Il paginate mi indica quanti risultati avrò per pagina
                 'project' => Project::with('type')->orderByDesc('id')->paginate(2)
                 // grazie a with type aggiungo la tabella della relazione
             ]);
         } else {
-            
+            return response()->json([
+                'success' => false,
+                'message' => '404'
+            ]);
         }
     }
 }
