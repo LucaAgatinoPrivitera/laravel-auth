@@ -12,8 +12,16 @@ class ProjectController extends Controller
     {
         return response()->json([
             'status' => 'success',
-            'projects'=> Project::with('type')->orderByDesc('id')->paginate()
+            // Il paginate mi indica quanti risultati avrò per pagina
+            'projects'=> Project::with('type')->orderByDesc('id')->paginate(2)
             // grazie a with type aggiungo la tabella della relazione
         ]);
     }
+    public function show($id)
+    {
+            $project = Project::with('type')->where('id', $id)->get();
+            dd($project);
+            // grazie a with type aggiungo la tabella della relazione
+    }
 }
+
