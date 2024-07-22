@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class projectController extends Controller
 {
@@ -52,6 +53,28 @@ class projectController extends Controller
         if ($request->hasFile('cover_image')) {
             $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
         }
+
+
+
+
+
+        // SLUG
+        $slug = Str::slug($data['name_project'], '-');
+
+        // Verifica se lo slug esiste già e genera uno slug unico
+        $c = Project::where('slug', 'LIKE', "$slug%")->count();
+        if ($c > 0) {
+            $slug = $slug . '-' . ($c + 1);
+        }
+
+        // Aggiungi lo slug all'array di dati
+        $data['slug'] = $slug;
+
+
+
+
+
+
 
         //CREO L'OGGETTO
         $newProject = new Project();
@@ -115,7 +138,7 @@ class projectController extends Controller
             if ($project->cover_image) {
                 Storage::disk('public')->delete($project->cover_image);
             }
-    
+
             // Carica la nuova immagine e aggiorna il campo cover_image nei dati
             $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
         }
