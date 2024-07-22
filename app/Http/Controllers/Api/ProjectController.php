@@ -19,7 +19,7 @@ class ProjectController extends Controller
     }
     public function show($id)
     {
-            $project = Project::with('type')->where('id', $id)->get();
+            $project = Project::with('type')->where('id', $id)->get()->first();
             dd($project);
             // grazie a with type aggiungo la tabella della relazione
     }
