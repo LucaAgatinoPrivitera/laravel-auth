@@ -36,6 +36,7 @@ class NewLeadMarkdownMessage extends Mailable
      */
     public function content(): Content
     {
+        // Questo file darà il corpo all'email una volta che verrà mandata, praticamente compila i vari campi e la manda a chi di dovere con una formattazione specifica
         return new Content(
             markdown: 'mail.new-lead-markdown-message',
         );

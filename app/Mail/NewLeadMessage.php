@@ -17,7 +17,16 @@ class NewLeadMessage extends Mailable
     /**
      * Create a new message instance.
      */
+
     public function __construct(public $lead)
+    /* function __construct(public $lead) equivale a non dover fare il seguente codice 
+      public $lead;
+      public function __construct($_lead)
+    {
+        $this->lead = $_lead;
+    }
+    */
+
     {
         //
     }
@@ -28,6 +37,7 @@ class NewLeadMessage extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            replyTo: $this->lead->address,
             subject: 'You received a new contact message from the website',
         );
     }
@@ -38,7 +48,7 @@ class NewLeadMessage extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.new-lead-message',
+            view: 'mail.new-lead-markdown-message.blade',
         );
     }
 

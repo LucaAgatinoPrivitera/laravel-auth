@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,7 @@ Route::get('projects/latest', [ProjectController::class, 'latest']);
 
 // Route::get('show', [ProjectController::class, 'show']);
 Route::get('projects/{project:slug}', [ProjectController::class, 'show']);
+
+
+// Aggiungiamo la rotta per il form di contatto
+Route::post('/mailable', [LeadController::class, 'store']);
