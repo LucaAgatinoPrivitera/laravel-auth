@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController; //<---- Import del controlle
 use App\Http\Controllers\Admin\languageController;
 use App\Http\Controllers\Admin\projectController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Models\Lead;
 use App\Models\Project;
 
 /*
@@ -53,6 +54,14 @@ Route::middleware(['auth'])
         Route::resource("/type", TypeController::class);
 
         Route::resource("/language", languageController::class);
+    });
+
+    Route::get('/mailable', function (){
+        // $lead = ['name' => 'Fabio', 'email' => 'fabio@example.com', 'message'=>'messaggio'];
+        $lead = Lead::first();
+
+        dd($lead);
+        return new App\Mail\NewLeadMarkdownMessage($lead);
     });
 
 require __DIR__ . '/auth.php';
