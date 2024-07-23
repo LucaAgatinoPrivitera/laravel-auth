@@ -30,8 +30,10 @@ class ProjectController extends Controller
     {
         $project = Project::with('type')->where('slug', $slug)->get()->first();
         // DA AGGIORNARE
-        dd($project);
+
+        // dd($project);
         // grazie a with type aggiungo la tabella della relazione
+        
 
         if ($project) {
             return response()->json([
